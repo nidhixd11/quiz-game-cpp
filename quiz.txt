@@ -1,0 +1,13 @@
+What is 2+2?
+1
+2
+3
+4
+D
+
+C++ STL stands for?
+Standard Template Library
+System Type Language
+Structured Type Library
+Standard Type Layer
+A
