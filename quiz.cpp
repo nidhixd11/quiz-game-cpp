@@ -1,4 +1,3 @@
-// quiz.cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,7 +10,7 @@ using namespace std;
 
 struct Question {
     string q,a,b,c,d;
-    char correct; // 'A'..'D'
+    char correct; 
 };
 vector<Question> qs;
 
@@ -23,12 +22,12 @@ bool loadQuiz(const string& path){
     while (true){
         Question Q;
         if(!getline(f,Q.q)) break;
-        if(Q.q.empty()) continue;     // skip blank lines
+        if(Q.q.empty()) continue;     
         getline(f,Q.a); getline(f,Q.b);
         getline(f,Q.c); getline(f,Q.d);
         string corr; if(!getline(f,corr)) break;
         Q.correct = toupper(corr[0]);
-        getline(f,line);              // read the blank separator
+        getline(f,line);              
         qs.push_back(Q);
     }
     return !qs.empty();
@@ -55,7 +54,6 @@ int main(){
     string path = "quiz.txt";
     cout << "Quiz file [press Enter for quiz.txt]: ";
     string in; 
-    // read whole line; user may just press Enter
     getline(cin, in);
     if(!in.empty()) path = in;
 
@@ -64,8 +62,6 @@ int main(){
              << "'. Make sure the file is in the same folder.\n";
         return 0;
     }
-
-    // shuffle questions for variety
     random_device rd; mt19937 rng(rd());
     shuffle(qs.begin(), qs.end(), rng);
 
